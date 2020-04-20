@@ -1,0 +1,12 @@
+{
+  "name": "react-tips",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yacheckalin/react-tips.git",
+  "author": "Yaroslav Chekalin ",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
