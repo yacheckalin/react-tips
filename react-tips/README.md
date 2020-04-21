@@ -1,3 +1,16 @@
+#### Table of Contents
+
+- [Use Capitalize Component Names](#use-capitalize-component-names)
+- [Close Every Element](#close-every-element)
+- [Use curly braces to embed expressions in JSX](#use-curly-braces-to-embed-expressions-in-jsx)
+- [Use default values for props with defaultProps](#use-default-values-for-props-with-defaultprops)
+- [Collect props with rest parameter syntax](#collect-props-with-rest-parameter-syntax)
+- [Avoid undefined values in spreaded attributes](#avoid-undefined-values-in-spreaded-attributes)
+- [Conditional rendering in JSX](#conditional-rendering-in-jsx)
+- [Render children types](#render-children-types)
+- [Render List of Elements](#render-list-of-elements)
+- [Use React.Children.only method](#use-react.children.only-method)
+
 #### Use Capitalize Component Names
 
 In JSX, a component that starts with a lowercase letter is assumed to be a built-in HTML or SVG element
@@ -120,7 +133,7 @@ const CustomInput = ({ className = "", ...props }) => (
 }
 ```
 
-#### Render children types (String, Array)
+#### Render children types
 
 > String
 
