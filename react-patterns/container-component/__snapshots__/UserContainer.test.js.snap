@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserContainer /> renders and displays properly 1`] = `
+<UsersList
+  data={Array []}
+/>
+`;

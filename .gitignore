@@ -1,5 +1,6 @@
 /dist
 /.cache
+/coverage
 
 # dependencies
 /node_modules

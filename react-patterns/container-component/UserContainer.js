@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 const UsersList = ({ data }) => (
   <ul className="collection">
@@ -16,10 +17,11 @@ class UserContainer extends React.Component {
     super();
     this.state = { data: [] };
   }
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => this.setState({ data: json }));
+  async componentDidMount() {
+    const { data } = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    this.setState({ data });
   }
   render() {
     return <UsersList data={this.state.data} />;
