@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavigationLayout /> renders and displays properly 1`] = `
+<NavigationBar
+  search={<SearchBar />}
+/>
+`;
+
+exports[`<NavigationLayout /> renders and displays properly 2`] = `
+<nav>
+  <div
+    className="nav-wrapper"
+  >
+    <a
+      className="brand-logo right"
+    >
+      Logo
+    </a>
+  </div>
+</nav>
+`;
+
+exports[`<NavigationLayout /> renders and displays properly 3`] = `
+<form>
+  <div
+    className="input-field"
+  >
+    <input
+      id="search"
+      required={true}
+      type="search"
+    />
+    <label
+      htmlFor="search"
+    >
+      <i
+        className="material-icons"
+      >
+        search
+      </i>
+    </label>
+  </div>
+</form>
+`;

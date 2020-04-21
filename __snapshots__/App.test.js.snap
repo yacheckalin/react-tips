@@ -4,5 +4,6 @@ exports[`<App /> renders and displays properly 1`] = `
 <div>
   <SearchForm />
   <Clicker />
+  <NavigationLayout />
 </div>
 `;

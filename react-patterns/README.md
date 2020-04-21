@@ -34,7 +34,7 @@ class SomeForm extends React.Component {
 
 #### State hoisting
 
-To change the state in a Parent component from the Child component, you can pass a callback from a Parent.
+To change the state in a Parent Component from the Child Component, you can pass a callback from a Parent.
 
 ```javascript
 class ParentComponent extends React.Component {
@@ -57,3 +57,21 @@ const ChildComponent = ({ onChange }) => (
 ```
 
 [Sample of State Hoisting Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/state-hoisting/Clicker.js)
+
+#### Layout Component
+
+```javascript
+const NavigationBar = (searchForm, navigation) => (
+  <nav>
+    <div>{navigation}</div>
+    <div>{searchForm}</div>
+  </nav>
+);
+
+<NavigationBar
+  searchForm={<SearchFormComponent />}
+  navigation={<NavigationListComponent />}
+/>;
+```
+
+[Sample of Layout Component Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/layout-component/NavigationLayout.js)
