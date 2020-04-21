@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> renders and displays properly 1`] = `
+<div>
+  <Card>
+    <Component />
+  </Card>
+</div>
+`;

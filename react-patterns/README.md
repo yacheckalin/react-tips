@@ -1,3 +1,42 @@
+#### Render Props
+
+> The term 'render prop' refers to a technique for sharing code between React components using a prop whose value is a function
+
+> Any prop that is a function that a component uses to know what to render is technically a 'render prop'
+
+> The concept of <strong>children as a function</strong>, <strong>child as a function</strong> also called render prop.
+
+```javascript
+const Card = (props) => (
+  <div className="row">
+    <div className="col s12 m6">
+      <div className="card blue-grey darken-1">
+        <div className="card-content white-text">
+          <span className="card-title">Card Title</span>
+          <p>{props.children()}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const Message = () => (
+  <div>
+    <Card>
+      {() => (
+        <>
+          I am a very simple card. I am good at containing small bits of
+          information. I am convenient because I require little markup to use
+          effectively.
+        </>
+      )}
+    </Card>
+  </div>
+);
+
+export default Message;
+```
+
 #### Container Component
 
 > A container does data fetching and then renders its corresponding sub-component. - Jason Bonta
@@ -91,6 +130,20 @@ const ChildComponent = ({ onChange }) => (
 ```
 
 [Sample of State Hoisting Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/state-hoisting/Clicker.js)
+
+#### Proxy Component
+
+Use high level component to proxy props to a lower-level component
+
+```javascript
+const Button = (props) => (
+  <button type="button" {...props}>
+    {props.children}
+  </button>
+);
+
+<Button className="btn">Load</Button>;
+```
 
 #### Layout Component
 
