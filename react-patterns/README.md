@@ -1,3 +1,37 @@
+#### Container Component
+
+> A container does data fetching and then renders its corresponding sub-component. - Jason Bonta
+
+```javascript
+class UserContainer extends React.Component {
+  constructor() {
+    super();
+    this.state = { data: [] };
+  }
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json }));
+  }
+  render() {
+    return <UsersList data={this.state.data} />;
+  }
+}
+
+const UsersList = ({ data }) => (
+  <ul className="collection">
+    {data.map((user) => (
+      <li key={user.id} className="collection-item">
+        <span>{user.id}</span> {user.name}
+        <span className="secondary-content">{user.email}</span>
+      </li>
+    ))}
+  </ul>
+);
+```
+
+[Sample of Container Component Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/container-component/UserContainer.js)
+
 #### Controlled Components
 
 > An input form element whose value is controlled by React(state) is called a 'controlled component'.
