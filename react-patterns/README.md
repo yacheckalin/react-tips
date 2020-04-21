@@ -31,3 +31,29 @@ class SomeForm extends React.Component {
 ```
 
 [Sample of Controlled Component Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/controlled-component/SearchForm.js)
+
+#### State hoisting
+
+To change the state in a Parent component from the Child component, you can pass a callback from a Parent.
+
+```javascript
+class ParentComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = { parentProperty: "" };
+  }
+  render() {
+    return (
+      <ChildComponent
+        onChange={(value) => this.setState({ parentProperty: value })}
+      />
+    );
+  }
+}
+
+const ChildComponent = ({ onChange }) => (
+  <input onChange={(e) => onChange(e.target.value)} />
+);
+```
+
+[Sample of State Hoisting Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/state-hoisting/Clicker.js)
