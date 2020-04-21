@@ -6,12 +6,24 @@ In JSX, a component that starts with a lowercase letter is assumed to be a built
 
 ```javascript
 const Intro = () => <div>Intro</div>;
+export default Intro;
 ```
 
 > instead of this
 
 ```javascript
 const intro = () => <div>Intro</div>;
+export default intro;
+```
+
+> or don't forget to capitalize it on import
+
+```javascript
+import Intro from "./intro";
+
+...
+
+<Intro />
 ```
 
 #### Close Every Element
