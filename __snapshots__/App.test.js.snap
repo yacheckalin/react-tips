@@ -7,5 +7,6 @@ exports[`<App /> renders and displays properly 1`] = `
   <NavigationLayout />
   <UserContainer />
   <Message />
+  <_class />
 </div>
 `;

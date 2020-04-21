@@ -1,3 +1,51 @@
+#### Higher-Order Components (HOC)
+
+> A higher-order component is a function that takes a component and returns a new component
+
+> HOC composes the original component by wrapping it in a container component
+
+> A HOC is a pure function with zero side-effects
+
+> Do not use in the render method of a component
+
+> Refs are not passed through
+
+```javascript
+export default function RenderUserList(WrappedComponent) {
+  return class extends Component {
+    constructor(props) {
+      super(props);
+      this.state = { data: [] };
+    }
+    async componentDidMount() {
+      const { data } = await axios(
+        "https://jsonplaceholder.typicode.com/users "
+      );
+      this.setState({ data });
+    }
+    render() {
+      return <WrappedComponent data={this.state.data} {...this.props} />;
+    }
+  };
+}
+
+export const UserList = ({ data }) => (
+  <ul className="collection">
+    {data.map((item) => (
+      <li key={item.id} className="collection-item">
+        {item.name}
+      </li>
+    ))}
+  </ul>
+);
+```
+
+```javascript
+const Users = RenderUserList(UserList);
+```
+
+[Sample of HOC Here](https://github.com/yacheckalin/react-tips/tree/master/react-patterns/hoc/RenderList.js)
+
 #### Render Props
 
 > The term 'render prop' refers to a technique for sharing code between React components using a prop whose value is a function
