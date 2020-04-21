@@ -1,4 +1,14 @@
-#### Higher-Order Components (HOC)
+#### Table of Contents
+
+- [Higher-Order Components](#higher-order-components)
+- [Render Props](#render-props)
+- [Container Component](#container-component)
+- [Controlled Components](#controlled-components)
+- [State Hoisting](#state-hoisting)
+- [Proxy Component](#proxy-component)
+- [Layout Component](#layout-component)
+
+#### Higher-Order Components
 
 > A higher-order component is a function that takes a component and returns a new component
 
