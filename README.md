@@ -27,3 +27,5 @@ yarn test
 [React Tips](https://github.com/yacheckalin/react-tips/tree/master/react-tips) - the most efficient react tips
 
 [React Patterns](https://github.com/yacheckalin/react-tips/tree/master/react-patterns) - the list of known React patterns with samples
+
+[Bad practicies/Anti Patterns](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns)
