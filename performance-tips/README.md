@@ -3,6 +3,7 @@
 - [Avoid Reconciliation](#avoid-reconciliation)
 - [Virtualize Long Lists](#virtualize-long-lists)
 - [Server Side Rendering (SSR)](#server-side-rendering)
+- [Using a CDN](#using-a-cdn)
 
 #### Avoid Reconciliation
 
@@ -57,3 +58,26 @@ SSR provides performance benefit and consistent SEO performance.
 - [Gatsby](https://www.gatsbyjs.org/)
 
 [More SSR details here](https://medium.com/@swazza85/ssr-with-react-9cb197cfe380)
+
+#### Using a CDN
+
+A CDN is one of possible ways to deliver static content from a website or mobile application to the browser more quickly and efficiently.
+
+It is beneficial to use CDN's for the following reasons:
+
+> High capacity infrastructure
+
+> Files have been cached
+
+> Different domains
+
+> Depends on user geographic location
+
+- Google Cloud CDN
+- Cloudflare
+- Akamai
+- Incapsula
+- MaxCDN
+- AWS CloudFront
+- CacheFly
+- KeyCDN
