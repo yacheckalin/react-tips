@@ -29,3 +29,5 @@ yarn test
 [React Patterns](https://github.com/yacheckalin/react-tips/tree/master/react-patterns) - the list of known React patterns with samples
 
 [Bad practicies/Anti Patterns](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns) - the anti patterns and bad approaches in React
+
+[Performance Tips](https://github.com/yacheckalin/react-tips/tree/master/performance-tips) - the most relevant performant tips for react.js applications
