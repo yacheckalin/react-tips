@@ -2,6 +2,7 @@
 
 - [Avoid Reconciliation](#avoid-reconciliation)
 - [Virtualize Long Lists](#virtualize-long-lists)
+- [Server Side Rendering (SSR)](#server-side-rendering)
 
 #### Avoid Reconciliation
 
@@ -43,3 +44,16 @@ All solutions above will only shallowly compare complex object in the props obje
 > > [react-window](https://github.com/bvaughn/react-window)
 
 > > [react-virtualized](https://github.com/bvaughn/react-virtualized)
+
+#### Server Side Rendering
+
+Server-side rendering (SSR) is a popular technique for rendering a normally client-side only single page app (SPA) on the server and then sending a fully rendered page to the client.
+
+SSR provides performance benefit and consistent SEO performance.
+
+> When the browser requests a page, the server loads React in the memory and fetches the data required to render the app. After that, the server sends generated HTML to the browser, which is immediately shown to the user.
+
+- [Next.js](https://nextjs.org/)
+- [Gatsby](https://www.gatsbyjs.org/)
+
+[More SSR details here](https://medium.com/@swazza85/ssr-with-react-9cb197cfe380)
