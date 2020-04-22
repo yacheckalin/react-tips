@@ -9,7 +9,7 @@
 
 #### Components Name
 
-Component name should be with a capital letter. Only HTML elements and SVG tags can begitn with a lowercase.
+Component name should be with a capital letter. Only HTML elements and SVG tags can begin with a lowercase.
 
 > You can ommit this rule by combining export/import functionality
 
@@ -31,9 +31,9 @@ import AlertMessage from "alertMessage";
 
 #### Breaking pure rendering
 
-When you create a new instance it's completely destroyed every pure render optimization inside the Child elements.
+When you create a new instance it's completely destroy every pure render optimization inside the Child components.
 
-> In JavaScript dirrerent instances have different identities and thus the shallow equality check always produces false and tells React to re-render the components.
+> In JavaScript different instances have different identities and thus the shallow equality check always produces false and tells React to re-render the components.
 
 > Don't create function inside render method! Functions create identities too
 
@@ -119,9 +119,9 @@ Using certain set of values such as array indexes may break your application or 
 
 > Random numbers or timestamps should not be used as keys. The component will be re-rendered every time even if the content inside the element has not changed.
 
-> Unique: Kyes must only be unique among siblings
+> Unique: Keys must only be unique among siblings
 
-> Predictable: The should not be generated randomly
+> Predictable: The key should not be generated randomly
 
 > Stable: The key for the same element should not be re-ordering elements
 
@@ -143,7 +143,7 @@ const List = (props) => (
 
 #### Unconditionally copying props to state
 
-> Using props to generate state often leads to duplicatino of 'source of truth'. This is because getInitialState is only invoked when the component is first created. A common misconception is that <strong>getDerivedStateFromProps</strong> only called when props 'change', and called any time a parent component rerenders, regardless of whether the props are 'different' from before.
+> Using props to generate state often leads to duplication of 'source of truth'. This is because getInitialState is only invoked when the component is first created. A common misconception is that <strong>getDerivedStateFromProps</strong> only called when props 'change', and called any time a parent component rerenders, regardless of whether the props are 'different' from before.
 
 ```javascript
 class UrlInput extends Component {
