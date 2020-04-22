@@ -1,12 +1,13 @@
 #### Table of Contents
 
 - [Avoid Reconciliation](#avoid-reconciliation)
+- [Virtualize Long Lists](#virtualize-long-lists)
 
 #### Avoid Reconciliation
 
 > When a component's props or state change, React decides whether an actual DOM update is necessary by comparing the newly returned element with the previously rendered one. When they are not equal, React will update the DOM.
 
-> You can override the lifecycle method <strong>shouldComponentUpdate</strong> and return <strong>false</strong>. In that case the entire rendering process.
+> You can override the lifecycle method <strong>shouldComponentUpdate</strong> and return <strong>false</strong>. In that case the entire rendering process will not update the DOM.
 
 ```javascript
 shouldComponentUpdate(nextProps, nextState) {return false;}
@@ -34,3 +35,11 @@ All solutions above will only shallowly compare complex object in the props obje
 - [Avoid Reconciliation details](https://reactjs.org/docs/optimizing-performance.html#avoid-reconciliation)
 - [Render Props with React.PureComponent](https://reactjs.org/docs/render-props.html#be-careful-when-using-render-props-with-reactpurecomponent)
 - [Don't Use HOCs inside the render Method](https://reactjs.org/docs/higher-order-components.html#dont-use-hocs-inside-the-render-method)
+
+#### Virtualize Long Lists
+
+> If your application renders long lists of data(hundreds or thousands of rows), we recommended using a technique known as 'windowing'. The technique only renders a small subset of your rows at any given time, and can dramatically reduce the time it takes to re-render the components as well as the number of DOM nodes created.
+
+> > [react-window](https://github.com/bvaughn/react-window)
+
+> > [react-virtualized](https://github.com/bvaughn/react-virtualized)

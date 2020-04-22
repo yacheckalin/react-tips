@@ -114,6 +114,7 @@ const Table = (props) => (
 > Also don't use HOCs inside the render method, instead apply HOCs outside the component definition so that the resulting component is created only once. Then, its identity will be consistent across renders.
 
 [More details here](https://medium.com/@esamatti/react-js-pure-render-performance-anti-pattern-fb88c101332f#.hv3l5i8vb)
+
 [Don't Use HOCs inside the render method](https://reactjs.org/docs/higher-order-components.html#dont-use-hocs-inside-the-render-method)
 
 #### Using index as key prop
