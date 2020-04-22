@@ -111,6 +111,7 @@ Memoized function faster because if the function is called with the same values 
 > - use <strong>useCallback()</strong> React.hook
 > - use <strong>useMemo()</strong> React.hook
 > - use higher-order component(HOC) from <strong>recompose/pure</strong>
+> - use <strong>reselect</strong> in redux
 
 > > <b>useCallback(fn, deps)</b> is equivalent to <b>useMemo(() => fn, deps)</b>
 

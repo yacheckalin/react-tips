@@ -6,6 +6,7 @@
 - [Unconditionally copying props to state](#unconditionally-copying-props-to-state)
 - [Erasing state when props change](#erasing-state-when-props-change)
 - [Using state with shallow comparison](#using-state-with-shallow-comparison)
+- [Spreading props on DOM elements](#spreading-props-on-dom-elements)
 
 #### Components Name
 
@@ -228,3 +229,11 @@ this.setState((state, props) => {
 ```
 
 [More details here](https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous)
+
+#### Spreading props on DOM elements
+
+Better to avoid spreading properties into a DOM elements as it adds unknown HTML attribute, which is unecessary.
+
+```javascript
+const Message = (props) => <div {...props}>{props.message}</div>;
+```
