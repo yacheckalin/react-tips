@@ -73,7 +73,7 @@ class Element extends PureComponent {
 }
 ```
 
-> > or to use class instance field sytax
+> > or to use class instance field syntax
 
 ```javascript
 class Element extends PureComponent {
