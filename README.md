@@ -28,4 +28,4 @@ yarn test
 
 [React Patterns](https://github.com/yacheckalin/react-tips/tree/master/react-patterns) - the list of known React patterns with samples
 
-[Bad practicies/Anti Patterns](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns)
+[Bad practicies/Anti Patterns](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns) - the anti patterns and bad approaches in React
