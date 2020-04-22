@@ -9,6 +9,12 @@
 - [Avoid Additional HTML Element Wrappers](#avoid-additional-html-element-wrappers)
 - [Dependency optimization](#dependency-optimization-with-webpack)
 - [Use the production build](#use-the-production-build)
+- [Using Chunk Files](#using-chunk-files)
+- [Using Lazy Loading Components](#using-lazy-loading-components)
+- [Throttling and Debouncing Events](#throttling-and-debouncing-events)
+- [Avoid Using Inline Style Attribute](#avoid-using-inline-style-attribute)
+- [Optimize Conditional Rendering](#optimize-conditional-rendering)
+- [Use Web Workers for CPU Extensive Tasks](#use-web-workers-for-cpu-extensive-tasks)
 
 #### Avoid Reconciliation
 
@@ -234,3 +240,15 @@ module.exports = { mode: "production" };
 ```
 
 [More details here](https://reactjs.org/docs/optimizing-performance.html)
+
+#### Using Chunk Files
+
+#### Using Lazy Loading Components
+
+#### Throttling and Debouncing Events
+
+#### Avoid Using Inline Style Attribute
+
+#### Optimize Conditional Rendering
+
+#### Use Web Workers for CPU Extensive Tasks
