@@ -7,6 +7,7 @@
 - [Use CSS Animation Instead of JavaScript Animation](#use-css-animation-instead-of-javascript-animation)
 - [Use Memoization](#use-memoization)
 - [Avoid Additional HTML Element Wrappers](#avoid-additional-html-element-wrappers)
+- [Dependency optimization](#dependency-optimization-with-webpack)
 
 #### Avoid Reconciliation
 
@@ -179,7 +180,7 @@ const UserInfo = ({ name, surname, email }) => (
 );
 ```
 
-> or short syntax
+> or short syntax <> ... </>
 
 ```javascript
 const UserInfo = ({ name, surname, email }) => (
@@ -202,3 +203,15 @@ const UserInfo = ({ name, surname, email }) => ([
     <div>{email}</div>
 )];
 ```
+
+#### Dependency optimization with webpack
+
+Here is the list of extensive [dependencies](https://github.com/GoogleChromeLabs/webpack-libs-optimizations) which you can optimize.
+
+> - react
+> - react-router
+> - lodash
+> - styled-components
+> - moment
+> - babel-polyfill
+> - etc...
