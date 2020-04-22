@@ -8,6 +8,7 @@
 - [Use Memoization](#use-memoization)
 - [Avoid Additional HTML Element Wrappers](#avoid-additional-html-element-wrappers)
 - [Dependency optimization](#dependency-optimization-with-webpack)
+- [Use the production build](#use-the-production-build)
 
 #### Avoid Reconciliation
 
@@ -215,3 +216,21 @@ Here is the list of extensive [dependencies](https://github.com/GoogleChromeLabs
 > - moment
 > - babel-polyfill
 > - etc...
+
+#### Use the production build
+
+> If you use production build that will minify many files and exclude warnings (development-only code).
+
+> For <strong>webpack</strong> you can use
+
+```javascript
+webpack --mode=production
+```
+
+> or
+
+```javascript
+module.exports = { mode: "production" };
+```
+
+[More details here](https://reactjs.org/docs/optimizing-performance.html)
