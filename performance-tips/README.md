@@ -6,6 +6,7 @@
 - [Using a CDN](#using-a-cdn)
 - [Use CSS Animation Instead of JavaScript Animation](#use-css-animation-instead-of-javascript-animation)
 - [Use Memoization](#use-memoization)
+- [Avoid Additional HTML Element Wrappers](#avoid-additional-html-element-wrappers)
 
 #### Avoid Reconciliation
 
@@ -162,4 +163,42 @@ const Comment = ({ comment, author, createdAt }) => (
 );
 
 export default moize(Comment, { isReact: true });
+```
+
+#### Avoid Additional HTML Element Wrappers
+
+> The [React.Fragment](https://reactjs.org/docs/react-api.html#reactfragment) component lets you return miltiple elements in a render() method without creating an additional DOM element.
+
+```javascript
+const UserInfo = ({ name, surname, email }) => (
+  <React.Fragment>
+    <div>{name}</div>
+    <div>{surname}</div>
+    <div>{email}</div>
+  </React.Fragment>
+);
+```
+
+> or short syntax
+
+```javascript
+const UserInfo = ({ name, surname, email }) => (
+  <>
+    <div>{name}</div>
+    <div>{surname}</div>
+    <div>{email}</div>
+  </>
+);
+```
+
+> Fragment syntax is only supported by Babel v7.0.0-beta.31 & above
+
+> Also there is a trick how you can ommit using React.Fragment for return miltiple elements in a render.
+
+```javascript
+const UserInfo = ({ name, surname, email }) => ([
+    <div>{name}</div>,
+    <div>{surname}</div>,
+    <div>{email}</div>
+)];
 ```
