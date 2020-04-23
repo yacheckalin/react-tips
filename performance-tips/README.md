@@ -9,7 +9,7 @@
 - [Avoid Additional HTML Element Wrappers](#avoid-additional-html-element-wrappers)
 - [Dependency optimization](#dependency-optimization-with-webpack)
 - [Use the production build](#use-the-production-build)
-- [Using Chunk Files](#using-chunk-files)
+- [Performance optimization using webpack](#performance-optimization-using-webpack)
 - [Using Lazy Loading Components](#using-lazy-loading-components)
 - [Throttling and Debouncing Events](#throttling-and-debouncing-events)
 - [Avoid Using Inline Style Attribute](#avoid-using-inline-style-attribute)
@@ -241,7 +241,19 @@ module.exports = { mode: "production" };
 
 [More details here](https://reactjs.org/docs/optimizing-performance.html)
 
-#### Using Chunk Files
+#### Performance optimization using webpack
+
+If you are using webpack there are several trick you can use to optimize performance of you bundle file.
+
+> - minimize the bundle usign the TerserPlugin
+> - use <b>SplitChunksPlugin</b> for dynamically improted modules
+> - use <b>namedModules</b>
+> - remove empty chunks
+> - recognise the <b>sideEffects</b> flag in package.json
+> - use <strong>CommonsChunkPlugin</strong>
+
+- [More technics here](https://webpack.js.org/configuration/optimization/)
+- [Code spliting webpack](https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366)
 
 #### Using Lazy Loading Components
 
