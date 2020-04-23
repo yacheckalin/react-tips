@@ -307,4 +307,41 @@ const Message = (props) => (
 
 #### Optimize Conditional Rendering
 
+> Never have multiple return statements in your render method
+
+> Either use <strong>embedded JSX expressions</strong> or a <strong>variable assignment</strong> and you'll gain substantial optimization.
+
+```javascript
+const Layout = () => {
+  const [showHeader, setShowHeader] = useState(false);
+  const Header = showHeader ? <Header /> : null;
+  ...
+  return (
+    <div>
+      {Header}
+      <Sidebar />
+      <Footer />
+    </div>
+  );
+};
+```
+
+> or
+
+```javascript
+const Layout = () => {
+  const [showHeader, setShowHeader] = useState(false);
+  ...
+  return (
+    <div>
+      {showHeader && <Header />}
+      <Sidebar />
+      <Footer />
+    </div>
+  );
+};
+```
+
+[More details here](https://medium.com/@cowi4030/optimizing-conditional-rendering-in-react-3fee6b197a20)
+
 #### Use Web Workers for CPU Extensive Tasks
