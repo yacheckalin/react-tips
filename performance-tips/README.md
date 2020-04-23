@@ -293,6 +293,18 @@ const Search = (props) => {
 
 #### Avoid Using Inline Style Attribute
 
+When you use inline style, the browser has to map all the style rules passed to the actual CSS properties, which increases the rendering time for the component.
+
+> Avoid usiing inline styles added as a JavaScript object instead of style tags.
+
+> Better to import the CSS file into the component or use styled-component library.
+
+```javascript
+const Message = (props) => (
+  <div style={{ backgroundColor: "green" }}>{props.message}</div>
+);
+```
+
 #### Optimize Conditional Rendering
 
 #### Use Web Workers for CPU Extensive Tasks
