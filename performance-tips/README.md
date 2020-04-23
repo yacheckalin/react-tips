@@ -257,6 +257,31 @@ If you are using webpack there are several trick you can use to optimize perform
 
 #### Using Lazy Loading Components
 
+> Loading bundle files on runtime reduces the size of the initial bundle.
+
+> <strong>React.lazy</strong> lets render a dynamic import as a regular component
+
+```javascript
+const SomeComponent = React.lazy(() => import("./SomeComponent"));
+```
+
+> The lazy component should then be rendered inside a <strong>Suspense</strong> component, which allows to show some fallback content till waiting for lazy component to load.
+
+```javascript
+import React, { Suspense } from "react";
+import SomeComponent from "./SomeComponent";
+
+const SuspenseComponent = () => (
+  <Supsense fallback={<div>Loading ... </div>}>
+    <SomeCompontn />
+  </Suspense>
+);
+```
+
+> Aren't available yet for server-side rendering (SSR).
+
+[More details here](https://reactjs.org/docs/code-splitting.html#reactlazy)
+
 #### Throttling and Debouncing Events
 
 Events have a different rate of triggering the event handler. The idea is to identify the event handler that is doing the expensive work and implement throttling and debouncing techniques.
