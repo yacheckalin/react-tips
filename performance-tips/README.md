@@ -386,7 +386,7 @@ Workers threads are the background threads that can execute multiple scripts wit
 
 #### Do Not Follow Bad Practicies
 
-This part is pretty obviouse. Try not to use anti-patterns and bad approaches, then you will increase the speed of application in times:
+This part is pretty obvious. Try not to use anti-patterns and bad approaches, then you will increase the speed of application in times:
 
 > - binding functions in render
 > - using index as key
