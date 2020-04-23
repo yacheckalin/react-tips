@@ -15,6 +15,7 @@
 - [Avoid Using Inline Style Attribute](#avoid-using-inline-style-attribute)
 - [Optimize Conditional Rendering](#optimize-conditional-rendering)
 - [Use Web Workers for CPU Extensive Tasks](#use-web-workers-for-cpu-extensive-tasks)
+- [Do Not Follow Bad Practicies](#do-not-follow-bad-practicies)
 
 #### Avoid Reconciliation
 
@@ -370,3 +371,27 @@ const Layout = () => {
 [More details here](https://medium.com/@cowi4030/optimizing-conditional-rendering-in-react-3fee6b197a20)
 
 #### Use Web Workers for CPU Extensive Tasks
+
+Workers threads are the background threads that can execute multiple scripts without interrupting the main thread.
+
+> Consider to use Web Workers for tasks like:
+>
+> - image processing
+> - sorting
+> - filtering
+> - and other CPU extensive tasks
+
+- [More details here](https://medium.com/launch-school/what-are-web-workers-4a0e1ded7a67)
+- [More info](https://medium.com/prolanceer/optimizing-react-app-performance-using-web-workers-79266afd4a7)
+
+#### Do Not Follow Bad Practicies
+
+This part is pretty obviouse. Try not to use anti-patterns and bad approaches, then you will increase the speed of application in times:
+
+> - binding functions in render
+> - using index as key
+> - using instatiations inside render method
+> - unconditionally copying props to state
+> - etc ...
+
+[More details here](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns)
