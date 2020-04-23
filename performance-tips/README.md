@@ -259,6 +259,38 @@ If you are using webpack there are several trick you can use to optimize perform
 
 #### Throttling and Debouncing Events
 
+Events have a different rate of triggering the event handler. The idea is to identify the event handler that is doing the expensive work and implement throttling and debouncing techniques.
+
+> Throttling means delaying function execution.
+
+> Debouncing is a technique to prevent the event trigger from being fired too often. For example, infinite scroll or infinite fetching when the user scroll to the bottom of the page.
+
+```javascript
+import debounce from "lodash.debounce";
+import React, { useState } from "react";
+
+const Search = (props) => {
+  const [query, setQuery] = useState("");
+
+  const search = debounce((q) => {
+    setQuery(q);
+
+    // API call here
+  }, 1000);
+  return (
+    <input
+      type="text"
+      value={query}
+      className="search"
+      onChnage={(e) => search(e)}
+    />
+  );
+};
+```
+
+- [throttle-debounce](https://www.npmjs.com/package/throttle-debounce)
+- [lodash.debounce](https://lodash.com/docs#debounce)
+
 #### Avoid Using Inline Style Attribute
 
 #### Optimize Conditional Rendering
