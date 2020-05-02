@@ -12,6 +12,7 @@ exports[`<SimpleCounter /> displays and renders properly 1`] = `
     >
       <span
         className="flow-text"
+        id="desc_counter"
         onClick={[Function]}
       >
         <i
@@ -23,6 +24,7 @@ exports[`<SimpleCounter /> displays and renders properly 1`] = `
     </div>
     <div
       className="col s2 blue-text"
+      id="counter_value"
     >
       0
     </div>
@@ -31,6 +33,7 @@ exports[`<SimpleCounter /> displays and renders properly 1`] = `
     >
       <span
         className="flow-text"
+        id="asc_counter"
         onClick={[Function]}
       >
         <i
