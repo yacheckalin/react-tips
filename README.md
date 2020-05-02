@@ -34,4 +34,4 @@ yarn test
 
 ---
 
-[Code Samples](https://github.com/yacheckalin/react-tips/tree/master/code-samples)
+[Code Samples](https://github.com/yacheckalin/react-tips/tree/master/code-samples) - this topic shows the code samples for react applications

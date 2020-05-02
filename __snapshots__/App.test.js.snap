@@ -2,6 +2,9 @@
 
 exports[`<App /> renders and displays properly 1`] = `
 <div>
+  <SimpleToggler
+    value={false}
+  />
   <SimpleCounter
     initial={10}
   />
