@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import ResumeListContext from "./ResumeListContext";
 import ResumeList from "./ResumeList";
+import ResumeFilter from "./ResumeFilter";
 import axios from "axios";
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
 const ResumeListContainer = () => {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
         "https://jsonplaceholder.typicode.com/todos"
       );
-      setData(
-        data.map((item) => {
-          return { ...item, priority: getRandomInt(3), editable: false };
-        })
-      );
+      const fetchedData = data.map((item) => {
+        return { ...item, priority: getRandomInt(3), editable: false };
+      });
+      setData(fetchedData);
+      setFilteredData(fetchedData);
     };
 
     fetchData();
@@ -59,8 +62,18 @@ const ResumeListContainer = () => {
     }
   };
 
+  const handleFilter = (title) => {
+    if (title) {
+      console.log(title);
+      setFilteredData(data.filter((item) => item.title.match(`${title}`)));
+    } else {
+      setFilteredData(data);
+    }
+  };
+
   return (
-    <ResumeListContext.Provider value={{ data }}>
+    <ResumeListContext.Provider value={{ data: filteredData }}>
+      <ResumeFilter onFilter={handleFilter} />
       <ResumeList onDelete={handleDelete} onEdit={handleEdit} />
     </ResumeListContext.Provider>
   );
