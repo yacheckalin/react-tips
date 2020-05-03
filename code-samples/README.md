@@ -76,4 +76,4 @@ export default SimpleToggler;
 
 Simple React Application with sort, filter, add item, remove item, add done/undone status
 
-<p><img src="./assets/resume_list_demo.gif" /></p>
+<p><img src="./assets/resume_list_demo_1.gif" /></p>
