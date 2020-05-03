@@ -2,17 +2,6 @@
 
 exports[`<App /> renders and displays properly 1`] = `
 <div>
-  <SimpleToggler
-    value={false}
-  />
-  <SimpleCounter
-    initial={10}
-  />
-  <SearchForm />
-  <Clicker />
-  <NavigationLayout />
-  <UserContainer />
-  <Message />
-  <_class />
+  <ResumeListContainer />
 </div>
 `;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeList /> renders and displays properly 1`] = `
+<ul
+  className="collection"
+/>
+`;

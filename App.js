@@ -8,19 +8,21 @@ import Message from "./react-patterns/render-props/Message";
 import RenderUserList, { UserList } from "./react-patterns/hoc/RenderList";
 import SimpleCounter from "./code-samples/counter";
 import SimpleToggler from "./code-samples/toggler";
+import ResumeListContainer from "./code-samples/resume-list";
 
 const Users = RenderUserList(UserList);
 
 const App = () => (
   <div>
-    <SimpleToggler value={false} />
+    {/* <SimpleToggler value={false} />
     <SimpleCounter initial={10} />
     <SearchForm />
     <Clicker />
     <NavigationLayout />
     <UserContainer />
     <Message />
-    <Users />
+    <Users /> */}
+    <ResumeListContainer />
   </div>
 );
 

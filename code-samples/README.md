@@ -2,6 +2,7 @@
 
 - [Simple Counter](#counter)
 - [Simple Toggler](#simple-toggler)
+- [Resume List](#resume-list)
 
 #### Simple Counter
 
@@ -70,3 +71,9 @@ SimpleToggler.propTypes = {
 
 export default SimpleToggler;
 ```
+
+#### Resume List
+
+Simple React Application with sort, filter, add item, remove item, add done/undone status
+
+<p><img src="https://github.com/yacheckalin/react-tips/tree/master/code-samples/assets/resume_list_demo.gif" /></p>

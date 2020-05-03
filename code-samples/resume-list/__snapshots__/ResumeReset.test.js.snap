@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeReset /> renders and displays properly 1`] = `
+<div
+  className="col s2"
+>
+  <a
+    className="btn red"
+    onClick={[Function]}
+  >
+    RESET
+  </a>
+</div>
+`;

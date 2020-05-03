@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeSort /> renders and displays properly 1`] = `
+<div
+  className="input-field col s2 "
+>
+  <select
+    defaultValue={1}
+    onChange={[Function]}
+  >
+    <option
+      value="1"
+    >
+      Priority ↑
+    </option>
+    <option
+      value="2"
+    >
+      Priority ↓
+    </option>
+  </select>
+  <label>
+    Sort By:
+  </label>
+</div>
+`;

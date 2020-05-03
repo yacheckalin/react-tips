@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeFilter /> renders and displays properly 1`] = `
+<Fragment>
+  <div
+    className="col s3 input-field"
+  >
+    <div>
+      <label>
+        <input
+          checked={1}
+          className="filled-in"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span>
+          <i
+            className="material-icons red-text"
+          >
+            flag
+          </i>
+        </span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input
+          checked={1}
+          className="filled-in"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span>
+          <i
+            className="material-icons yellow-text"
+          >
+            flag
+          </i>
+        </span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input
+          checked={1}
+          className="filled-in"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <span>
+          <i
+            className="material-icons green-text"
+          >
+            flag
+          </i>
+        </span>
+      </label>
+    </div>
+  </div>
+</Fragment>
+`;

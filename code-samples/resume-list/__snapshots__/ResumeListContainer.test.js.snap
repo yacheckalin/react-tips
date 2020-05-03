@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeListContainer /> renders and displays properly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "data": Array [],
+      "filterPriorities": Array [
+        1,
+        1,
+        1,
+      ],
+      "search": "",
+      "sortBy": "priority",
+      "sortDirection": "desc",
+    }
+  }
+>
+  <div
+    className="row"
+  >
+    <ResumeSearch
+      onSearch={[Function]}
+    />
+    <ResumeFilter
+      onFilter={[Function]}
+    />
+    <ResumeReset
+      onReset={[Function]}
+    />
+    <ResumeSort
+      onSort={[Function]}
+    />
+  </div>
+  <ResumeList
+    onDelete={[Function]}
+    onEdit={[Function]}
+  />
+</ContextProvider>
+`;
