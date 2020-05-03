@@ -3,7 +3,12 @@ import ResumeListContext from "./ResumeListContext";
 import ResumeList from "./ResumeList";
 import ResumeFilter from "./ResumeFilter";
 import ResumeSort from "./ResumeSort";
+import ResumeSearch from "./ResumeSearch";
 import axios from "axios";
+
+import { PRIORITY_HIGH, PRIORITY_MIDDLE, PRIORITY_LOW } from "./constants";
+import SearchBar from "../../react-patterns/layout-component/SearchBar";
+import ResumeReset from "./ResumeReset";
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
@@ -12,6 +17,8 @@ const ResumeListContainer = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [sortBy, setSortBy] = useState("priority");
   const [sortDirection, setSortDirection] = useState("desc");
+  const [filterByTitle, setFilterByTitle] = useState("");
+  const [filterByPriority, setFilterByPriority] = useState([1, 1, 1]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,15 +73,49 @@ const ResumeListContainer = () => {
     }
   };
 
-  const handleFilter = (title) => {
-    if (title) {
-      setFilteredData(data.filter((item) => item.title.match(`${title}`)));
+  const handleFilter = ({ priorities }) => {
+    setFilterByPriority(priorities);
+
+    const tmp = !filterByTitle ? [...data] : [...filteredData];
+    setFilteredData([...tmp.filter((item) => priorities[item.priority])]);
+  };
+
+  const handleSort = ({ prop, dir } = { prop: "priority", dir: "desc" }) => {
+    setSortBy(prop);
+    setSortDirection(dir);
+
+    sort();
+  };
+
+  const handleSearch = (query) => {
+    setFilterByTitle(query);
+
+    search();
+  };
+
+  const handleReset = () => {
+    setFilteredData(data);
+    setFilterByTitle("");
+    setSortBy("priority");
+    setSortDirection("desc");
+    setFilterByPriority([1, 1, 1]);
+  };
+
+  const search = () => {
+    const query = filterByTitle;
+    if (query) {
+      setFilteredData([
+        ...filteredData.filter((item) => item.title.match(`${query}`)),
+      ]);
     } else {
       setFilteredData(data);
     }
   };
 
-  const handleSort = ({ prop, dir } = { prop: "priority", dir: "desc" }) => {
+  const sort = () => {
+    const prop = sortBy;
+    const dir = sortDirection;
+
     if (dir === "desc") {
       setFilteredData([...filteredData].sort((a, b) => a[prop] - b[prop]));
     }
@@ -85,10 +126,18 @@ const ResumeListContainer = () => {
 
   return (
     <ResumeListContext.Provider
-      value={{ data: filteredData, sortBy, sortDirection }}
+      value={{
+        data: filteredData,
+        sortBy,
+        sortDirection,
+        filterPriorities: filterByPriority,
+        search: filterByTitle,
+      }}
     >
       <div className="row">
+        <ResumeSearch onSearch={handleSearch} />
         <ResumeFilter onFilter={handleFilter} />
+        <ResumeReset onReset={handleReset} />
         <ResumeSort onSort={handleSort} />
       </div>
       <ResumeList onDelete={handleDelete} onEdit={handleEdit} />

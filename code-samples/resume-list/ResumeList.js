@@ -27,7 +27,7 @@ const ResumeList = ({ onDelete, onEdit }) => {
                 <span>&nbsp;</span>
               </label>
             </div>
-            <div className="col s3 input-field">
+            <div className="col s6 input-field">
               {todo.editable ? (
                 <>
                   <i
@@ -69,9 +69,21 @@ const ResumeList = ({ onDelete, onEdit }) => {
               )}
             </div>
             <div className="col s3">
+              {todo.priority === 0 && (
+                <i className="material-icons red-text">flag</i>
+              )}
+              {todo.priority === 1 && (
+                <i className="material-icons yellow-text">flag</i>
+              )}
+              {todo.priority === 2 && (
+                <i className="material-icons green-text">flag</i>
+              )}
+            </div>
+            <div className="col s2">
               {todo.completed && (
                 <span className="new badge green">completed</span>
               )}
+
               <span className="secondary-content">
                 <i
                   className="material-icons red-text"

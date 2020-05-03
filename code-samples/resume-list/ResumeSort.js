@@ -18,7 +18,7 @@ const ResumeSort = ({ onSort }) => {
   );
 
   return (
-    <div className="input-field col s3 ">
+    <div className="input-field col s2 ">
       <select
         defaultValue={defaultValue}
         onChange={(e) => {
