@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ResumeListContext from "./ResumeListContext";
 import PropTypes from "prop-types";
 
-const ResumeList = ({ onCompleted }) => {
+const ResumeList = ({ onDelete, onEdit }) => {
+  const [editable, setEditable] = useState(false);
   const context = useContext(ResumeListContext);
 
   const { data } = context;
@@ -11,18 +12,48 @@ const ResumeList = ({ onCompleted }) => {
     <ul className="collection">
       {data.map((todo) => (
         <li key={todo.id} className="collection-item">
-          <label>
-            <input
-              type="checkbox"
-              className="filled-in"
-              checked={todo.completed}
-              onChange={(e) =>
-                onCompleted({ id: todo.id, value: !todo.completed })
-              }
-            />
-            <span>{todo.title}</span>
-          </label>
-          <span className="secondary-content">Actions</span>
+          <div className="row">
+            <div className="col s1">
+              <label>
+                <input
+                  type="checkbox"
+                  className="filled-in"
+                  checked={todo.completed}
+                  onChange={(e) =>
+                    onEdit({ id: todo.id, obj: ["completed", !todo.completed] })
+                  }
+                />
+                <span>&nbsp;</span>
+              </label>
+            </div>
+            <div className="col s3">
+              <span>
+                {editable ? (
+                  <input
+                    type="text"
+                    onChange={(e) =>
+                      onEdit({ id: todo.id, obj: ["title", e.target.value] })
+                    }
+                  />
+                ) : (
+                  todo.title
+                )}
+              </span>
+            </div>
+            <div className="col s3">
+              {todo.completed && (
+                <span className="new badge green">completed</span>
+              )}
+              <span className="secondary-content">
+                <i
+                  className="material-icons red-text"
+                  onClick={(e) => onDelete(todo.id)}
+                >
+                  delete
+                </i>
+              </span>
+            </div>
+          </div>
         </li>
       ))}
     </ul>
@@ -30,7 +61,8 @@ const ResumeList = ({ onCompleted }) => {
 };
 
 ResumeList.propTypes = {
-  onCompleted: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ResumeList;

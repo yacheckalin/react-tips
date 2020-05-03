@@ -3,6 +3,8 @@ import ResumeListContext from "./ResumeListContext";
 import ResumeList from "./ResumeList";
 import axios from "axios";
 
+const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+
 const ResumeListContainer = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -10,18 +12,34 @@ const ResumeListContainer = () => {
       const { data } = await axios.get(
         "https://jsonplaceholder.typicode.com/todos"
       );
-      setData(data);
+      setData(
+        data.map((item) => {
+          return { ...item, priority: getRandomInt(3) };
+        })
+      );
     };
 
     fetchData();
   }, []);
 
-  const handleCompleted = ({ id, value }) => {
-    console.log(id, value);
+  const handleDelete = (id) => {
+    try {
+      const remove = async () => {
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+      };
+      remove();
+
+      setData(data.filter((item) => item.id != id));
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  const handleEdit = ({ id, obj: [prop, value] }) => {
     try {
       const result = async () => {
         await axios.put(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-          completed: value,
+          [prop]: value,
         });
       };
       result();
@@ -29,7 +47,7 @@ const ResumeListContainer = () => {
       setData(
         data.map((item) => {
           if (item.id === id) {
-            item.completed = value;
+            item[prop] = value;
           }
           return item;
         })
@@ -41,7 +59,7 @@ const ResumeListContainer = () => {
 
   return (
     <ResumeListContext.Provider value={{ data }}>
-      <ResumeList onCompleted={handleCompleted} />
+      <ResumeList onDelete={handleDelete} onEdit={handleEdit} />
     </ResumeListContext.Provider>
   );
 };
