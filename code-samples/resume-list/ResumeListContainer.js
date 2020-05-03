@@ -14,7 +14,7 @@ const ResumeListContainer = () => {
       );
       setData(
         data.map((item) => {
-          return { ...item, priority: getRandomInt(3) };
+          return { ...item, priority: getRandomInt(3), editable: false };
         })
       );
     };
@@ -35,11 +35,11 @@ const ResumeListContainer = () => {
     }
   };
 
-  const handleEdit = ({ id, obj: [prop, value] }) => {
+  const handleEdit = ({ id, ...rest }) => {
     try {
       const result = async () => {
         await axios.put(`https://jsonplaceholder.typicode.com/todos/${id}`, {
-          [prop]: value,
+          ...rest,
         });
       };
       result();
@@ -47,7 +47,9 @@ const ResumeListContainer = () => {
       setData(
         data.map((item) => {
           if (item.id === id) {
-            item[prop] = value;
+            for (let prop in rest) {
+              item[prop] = rest[prop];
+            }
           }
           return item;
         })
