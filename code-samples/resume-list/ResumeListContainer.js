@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ResumeListContext from "./ResumeListContext";
 import ResumeList from "./ResumeList";
 import ResumeFilter from "./ResumeFilter";
+import ResumeSort from "./ResumeSort";
 import axios from "axios";
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
@@ -9,6 +10,8 @@ const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 const ResumeListContainer = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [sortBy, setSortBy] = useState("priority");
+  const [sortDirection, setSortDirection] = useState("desc");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +36,7 @@ const ResumeListContainer = () => {
       remove();
 
       setData(data.filter((item) => item.id != id));
+      setFilteredData(filteredData.filter((item) => item.id != id));
     } catch (e) {
       console.warn(e);
     }
@@ -47,8 +51,8 @@ const ResumeListContainer = () => {
       };
       result();
 
-      setData(
-        data.map((item) => {
+      setFilteredData(
+        filteredData.map((item) => {
           if (item.id === id) {
             for (let prop in rest) {
               item[prop] = rest[prop];
@@ -64,16 +68,29 @@ const ResumeListContainer = () => {
 
   const handleFilter = (title) => {
     if (title) {
-      console.log(title);
       setFilteredData(data.filter((item) => item.title.match(`${title}`)));
     } else {
       setFilteredData(data);
     }
   };
 
+  const handleSort = ({ prop, dir } = { prop: "priority", dir: "desc" }) => {
+    if (dir === "desc") {
+      setFilteredData([...filteredData].sort((a, b) => a[prop] - b[prop]));
+    }
+    if (dir === "asc") {
+      setFilteredData([...filteredData].sort((a, b) => b[prop] - a[prop]));
+    }
+  };
+
   return (
-    <ResumeListContext.Provider value={{ data: filteredData }}>
-      <ResumeFilter onFilter={handleFilter} />
+    <ResumeListContext.Provider
+      value={{ data: filteredData, sortBy, sortDirection }}
+    >
+      <div className="row">
+        <ResumeFilter onFilter={handleFilter} />
+        <ResumeSort onSort={handleSort} />
+      </div>
       <ResumeList onDelete={handleDelete} onEdit={handleEdit} />
     </ResumeListContext.Provider>
   );
