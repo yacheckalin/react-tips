@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResumeSearch /> renders and displays properly 1`] = `
+<div
+  className="col s4 input-field"
+>
+  <span
+    className="prefix"
+  >
+    <i
+      className="material-icons green-text"
+    >
+      search
+    </i>
+  </span>
+  <input
+    className="validate"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+</div>
+`;
