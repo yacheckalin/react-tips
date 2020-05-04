@@ -9,6 +9,7 @@ import RenderUserList, { UserList } from "./react-patterns/hoc/RenderList";
 import SimpleCounter from "./code-samples/counter";
 import SimpleToggler from "./code-samples/toggler";
 import ResumeListContainer from "./code-samples/resume-list";
+import TestContainer from "./code-samples/context-test";
 
 const Users = RenderUserList(UserList);
 
@@ -22,7 +23,8 @@ const App = () => (
     <UserContainer />
     <Message />
     <Users /> */}
-    <ResumeListContainer />
+    {/* <ResumeListContainer /> */}
+    <TestContainer />
   </div>
 );
 
