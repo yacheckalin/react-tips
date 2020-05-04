@@ -3,6 +3,7 @@
 - [Simple Counter](#counter)
 - [Simple Toggler](#simple-toggler)
 - [Resume List](#resume-list)
+- [Props as a child in Context Provider](#props-as-a-child-in-context-provider)
 
 #### Simple Counter
 
@@ -77,3 +78,49 @@ export default SimpleToggler;
 Simple React Application with sort, filter, add item, remove item, add done/undone status
 
 <p><img src="./assets/resume_list_demo_1.gif" /></p>
+
+#### Props as a child in Context Provider
+
+The idea behind this is to create context provider and put it inside separated component. This gives us more flexibility when change state values.
+
+```javascript
+// test-context-provider.js
+import React, { useState } from "react";
+
+export const TestContext = React.createContext();
+
+const TestContextProvider = ({ children }) => {
+  const [data, setData] = useState([]);
+
+  return (
+    <TestContext.Provider value={{ data, setData }}>
+      {children}
+    </TestContext.Provider>
+  );
+};
+
+export default TestContextProvider;
+```
+
+```javascript
+// test-container.js
+import React from "react";
+import TestComponentList from "./test-component-list";
+import TestComponentButton from "./test-component-button";
+import TestContextProvider from "./test-context-provider";
+
+const TestContainer = () => {
+  return (
+    <TestContextProvider>
+      <div className="container">
+        <div className="row">
+          <TestComponentList />
+          <TestComponentButton />
+        </div>
+      </div>
+    </TestContextProvider>
+  );
+};
+
+export default TestContainer;
+```

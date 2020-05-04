@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestContainer /> displays and shows properly 1`] = `
+<TestContextProvider>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <TestComponentList />
+      <TestComponentButton />
+    </div>
+  </div>
+</TestContextProvider>
+`;

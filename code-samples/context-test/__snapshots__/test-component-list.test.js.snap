@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestComponentList /> shows and displays properly 1`] = `
+<div
+  className="col s4"
+>
+  <ul
+    className="collection"
+  />
+</div>
+`;
