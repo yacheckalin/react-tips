@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TestComponentButton /> shows and displays properly 1`] = `
+<a
+  className="btn green"
+  onClick={[Function]}
+>
+  Update Data
+</a>
+`;

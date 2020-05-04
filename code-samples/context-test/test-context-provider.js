@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 export const TestContext = React.createContext();
+export const useTestContext = () => useContext(TextContext);
 
 const TestContextProvider = ({ children }) => {
   const [data, setData] = useState([]);

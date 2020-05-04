@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import { TestContext } from "./test-context-provider";
+import React from "react";
+import { useTestContext } from "./test-context-provider";
 
 const TestComponentList = () => {
-  const { data } = useContext(TestContext);
+  const { data } = useTestContext();
 
   return (
     <div className="col s4">

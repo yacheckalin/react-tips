@@ -81,7 +81,7 @@ Simple React Application with sort, filter, add item, remove item, add done/undo
 
 #### Props as a child in Context Provider
 
-The idea behind this is to create context provider and put it inside separated component
+The idea behind this is to create context provider and put it inside separated component. This gives us more flexibility when change state values.
 
 ```javascript
 // test-context-provider.js
