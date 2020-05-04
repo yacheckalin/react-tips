@@ -392,6 +392,7 @@ This part is pretty obvious. Try not to use anti-patterns and bad approaches, th
 > - using index as key
 > - using instatiations inside render method
 > - unconditionally copying props to state
+> - keep your <strong>render</strong> method pure (no side-effect), use <b>useLayoutEffect</b> or <b>useEffect</b> hooks
 > - etc ...
 
 [More details here](https://github.com/yacheckalin/react-tips/tree/master/anti-patterns)

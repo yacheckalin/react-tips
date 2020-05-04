@@ -7,6 +7,7 @@
 - [Erasing state when props change](#erasing-state-when-props-change)
 - [Using state with shallow comparison](#using-state-with-shallow-comparison)
 - [Spreading props on DOM elements](#spreading-props-on-dom-elements)
+- [Using createRef in functional components](#using-createref-in-functional-components)
 
 #### Components Name
 
@@ -236,4 +237,62 @@ Better to avoid spreading properties into a DOM elements as it adds unknown HTML
 
 ```javascript
 const Message = (props) => <div {...props}>{props.message}</div>;
+```
+
+#### Using createRef in functional components
+
+If you create a ref using <stong>createRef</strong> in a functional component, React will create a new instance of the ref on every re-render instead of keeping it between renders.
+
+```javascript
+import React, { createRef } from "react";
+
+const FormElement = ({ props }) => {
+  const emailInputRef = createRef();
+
+  const focusOnElement = () => emailInputRef.current.focus();
+
+  return (
+    <>
+      <input type="email" ref={emailInputRef} />
+      <button onClick={focusOnElement}>Focus on email</button>
+    </>
+  );
+};
+```
+
+should be
+
+```javascript
+import React, { useRef } from "react";
+
+const FormElement = ({ props }) => {
+  const emailInputRef = useRef();
+
+  const focusOnElement = () => emailInputRef.current.focus();
+
+  return (
+    <>
+      <input type="email" ref={emailInputRef} />
+      <button onClick={focusOnElement}>Focus on email</button>
+    </>
+  );
+};
+```
+
+> > Updating a <b>ref</b> is a side effect so it should be done only inside an <code>useEffect</code> or <code>useLayoutEffect</code> or inside an event handler
+
+```javascript
+import React, { useRef, useEffect } from "react";
+
+const Picker = () => {
+  const pick = useRef(0);
+
+  useEffect(() => {
+    // this will count re-renderes
+    // ref.current property won't cause a re-render
+    pick.current = pick.current + 1;
+  });
+
+  return <div>{`Component has been re-rendered ${pick} times`}</div>;
+};
 ```
